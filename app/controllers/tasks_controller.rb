@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   end
 
-    def create
+  def create
     @task = Task.new(task_params)
 
     if @task.save
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   
- def update
+  def update
     @task = Task.find(params[:id])
 
     if @task.update(task_params)
@@ -52,6 +52,6 @@ class TasksController < ApplicationController
 
   # Strong Parameter
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:status,:content)
   end
 end
